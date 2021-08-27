@@ -80,7 +80,8 @@ namespace DatabaseFirstLINQ
         {
             // Write a LINQ query that gets each product that contains an "s" in the products name.
             // Then print the name of each product from the above query to the console.
-
+            
+            
         }
 
         private void ProblemFive()
