@@ -19,8 +19,8 @@ namespace DatabaseFirstLINQ
             ProblemTwo();
             ProblemThree();
             //ProblemFour();
-            //ProblemFive();
-            //ProblemSix();
+            ProblemFive();
+            ProblemSix();
             //ProblemSeven();
             //ProblemEight();
             //ProblemNine();
@@ -44,6 +44,7 @@ namespace DatabaseFirstLINQ
             // HINT: .ToList().Count
             int users = _context.Users.ToList().Count;
             Console.WriteLine(users);
+            Console.WriteLine('\n');
 
         }
 
@@ -55,8 +56,10 @@ namespace DatabaseFirstLINQ
             foreach (User user in users)
             {
                 Console.WriteLine(user.Email);
+                
             }
-
+            
+            Console.WriteLine('\n');
         }
 
         private void ProblemThree()
@@ -69,11 +72,15 @@ namespace DatabaseFirstLINQ
             foreach (Product product in products) 
             {
                 Console.WriteLine(product.Name + "  $" + product.Price);
+                
             }
-            foreach (decimal price in prices)
-            {
-                Console.WriteLine(" $" + price);
-            }
+
+            Console.WriteLine('\n');
+            
+            //foreach (decimal price in prices)
+            //{
+            //    Console.WriteLine(" $" + price);
+            //}
         }
 
         private void ProblemFour()
@@ -88,13 +95,28 @@ namespace DatabaseFirstLINQ
         {
             // Write a LINQ query that gets all of the users who registered BEFORE 2016
             // Then print each user's email and registration date to the console.
+            var users = _context.Users.Where(e => e.RegistrationDate.Value.Year < 2016);
 
+            foreach (User user in users)
+            {
+                Console.WriteLine(user.Email + " " + user.RegistrationDate);
+                
+            }
+            
+            Console.WriteLine('\n');
         }
 
         private void ProblemSix()
         {
             // Write a LINQ query that gets all of the users who registered AFTER 2016 and BEFORE 2018
             // Then print each user's email and registration date to the console.
+            var users = _context.Users.Where(e => e.RegistrationDate.Value.Year < 2018 && e.RegistrationDate.Value.Year > 2016);
+
+            foreach (User user in users)
+            {
+                Console.WriteLine(user.Email + " " + user.RegistrationDate);
+
+            }
 
         }
 
